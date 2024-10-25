@@ -5,7 +5,7 @@ on:
 
 jobs:
   CI:
-    runs-on: blacksmith-2vcpu-ubuntu-2204
+    runs-on: ubuntu-latest
 
     steps:
       - name: ⬇️ Checkout repo
@@ -17,7 +17,7 @@ jobs:
           bun-version: latest
 
       - name: 💾 Setup bun cache
-        uses: useblacksmith/cache@v5
+        uses: actions/cache@v3
         with:
           path: ~/.bun/install/cache
           key: ${{ runner.os }}-bun-store-v1-${{ hashFiles('**/bun.lockb') }}
