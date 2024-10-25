@@ -1,20 +1,40 @@
 {
   "name": "numia-engage-sdk",
-  "module": "src/index.ts",
   "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
   "scripts": {
     "lint": "biome lint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build": "bun build.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@happy-dom/global-registrator": "^15.7.4",
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "bun-plugin-dts": "^0.3.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
     "p-retry": "^6.2.0"
-  }
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/numiadata/numia-engage-sdk",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/numiadata/numia-engage-sdk.git"
+  },
+  "bugs": "https://github.com/numiadata/numia-engage-sdk/issues",
+  "author": "Marc Höffl <marc@numia.xyz>"
 }
