@@ -8,29 +8,33 @@ jobs:
     runs-on: blacksmith-2vcpu-ubuntu-2204
 
     steps:
-      - uses: actions/checkout@v3
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
 
-      - name: Setup Bun
+      - name: 🔥 Install bun
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
 
-      - uses: useblacksmith/cache@v5
-        name: Setup bun cache
+      - name: 💾 Setup bun cache
+        uses: useblacksmith/cache@v5
         with:
           path: ~/.bun/install/cache
           key: ${{ runner.os }}-bun-store-v1-${{ hashFiles('**/bun.lockb') }}
           restore-keys: |
             ${{ runner.os }}-bun-store-v1
 
-      - name: Install dependencies
+      - name: 📥 Download deps
         run: bun install --frozen-lockfile
 
-      - name: Run linter (Biome)
+      - name: 🔍 Lint
         run: bun run lint
 
-      - name: Run type check
+      - name: 🧐 Type check
         run: bun run typecheck
 
-      - name: Run tests
-        run: bun test
+      - name: 🧪 Test
+        run: bun run test
+
+      - name: 📦 Build
+        run: bun run build
