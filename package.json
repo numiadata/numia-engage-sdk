@@ -2,6 +2,10 @@
   "name": "numia-engage-sdk",
   "module": "src/index.ts",
   "type": "module",
+  "scripts": {
+    "lint": "biome lint .",
+    "typecheck": "tsc --noEmit"
+  },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@happy-dom/global-registrator": "^15.7.4",
