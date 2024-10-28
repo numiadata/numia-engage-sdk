@@ -1,5 +1,6 @@
 {
-  "name": "numia-engage-sdk",
+  "name": "@numia/engage-sdk",
+  "version": "0.0.0",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -12,7 +13,8 @@
   "scripts": {
     "lint": "biome lint .",
     "typecheck": "tsc --noEmit",
-    "build": "bun build.ts"
+    "build": "bun build.ts",
+    "release": "npm run build && bunx np"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
@@ -35,6 +37,9 @@
     "type": "git",
     "url": "git+https://github.com/numiadata/numia-engage-sdk.git"
   },
-  "bugs": "https://github.com/numiadata/numia-engage-sdk/issues",
-  "author": "Marc Höffl <marc@numia.xyz>"
+  "bugs": {
+    "url": "https://github.com/numiadata/numia-engage-sdk/issues"
+  },
+  "author": "Marc Höffl <marc@numia.xyz>",
+  "description": "Numia Engage Javascript/Typescript SDK"
 }
