@@ -3,7 +3,6 @@ import assert from "node:assert";
 import { createEngage } from "../create-engage";
 import type { SentEvent } from "../base-event";
 
-const originalFetch = global.fetch;
 const mockFetch = mock();
 
 describe("Engage", () => {
@@ -11,7 +10,6 @@ describe("Engage", () => {
     global.fetch = mockFetch;
   });
   afterEach(() => {
-    console.log("Reset");
     mockFetch.mockReset();
     document.location.href = "http://numia.xyz";
     window.localStorage.clear();
