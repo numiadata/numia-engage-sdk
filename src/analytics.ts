@@ -22,7 +22,7 @@ export class Analytics {
     this.middlewares = options.middlewares;
   }
 
-  private async sendEvent(event: SentEvent): Promise<void> {
+  private async sendEvent(event: SentEvent): Promise<{ success: boolean }> {
     try {
       const finalEvent = await runMiddlewares(
         this.middlewares,
@@ -30,8 +30,14 @@ export class Analytics {
         event
       );
       await this.transport.sendEvent(finalEvent);
+      return {
+        success: true,
+      };
     } catch (error) {
       console.error("Failed to send analytics event:", error);
+      return {
+        success: false,
+      };
     }
   }
 

@@ -20,7 +20,7 @@ export function createEngage(options: EngageOptions) {
 
   const storage = createLocalStorage({ prefix: "num" });
   const transport = createFetchTransport({
-    url: `${baseUrl}/track`,
+    url: `${baseUrl}/sdk/track`,
     apiKey,
   });
   const engage = new Analytics({
