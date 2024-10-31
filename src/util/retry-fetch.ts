@@ -38,7 +38,15 @@ async function wrappedFetch(...args: Parameters<typeof fetch>) {
 }
 
 // Source: https://github.com/sindresorhus/got/blob/main/documentation/7-retry.md
-const retryMethods = ["GET", "PUT", "HEAD", "DELETE", "OPTIONS", "TRACE"];
+const retryMethods = [
+  "GET",
+  "PUT",
+  "HEAD",
+  "DELETE",
+  "OPTIONS",
+  "TRACE",
+  "POST", // This is not in the default, but I think it makes sense for us
+];
 const retryStatusCodes = [408, 413, 429, 500, 502, 503, 504, 521, 522, 524];
 const retryErrorCodes = [
   "ETIMEDOUT",
