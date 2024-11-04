@@ -21,8 +21,7 @@ export function createFetchTransport(
       {
         method: "POST",
         headers: {
-          "Content-Type": "application/json;charset=utf-8",
-          Accept: "application/json",
+          "Content-Type": "text/plain",
           Authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify(event),
