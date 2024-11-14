@@ -1,6 +1,6 @@
 // Copy paste examples from readme, to make sure they match the types
 
-import { createEngage } from "@numia/engage-sdk";
+import { createEngage } from "../src/index";
 
 const analytics = createEngage({
   app: "soon-unicorn-app",
